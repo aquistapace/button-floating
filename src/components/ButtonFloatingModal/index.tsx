@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, ButtonContent} from './styles';
+import { Container, ButtonContent, ListContent } from './styles';
 import Modal from "../../components/Modal"
 
 
@@ -25,16 +25,31 @@ const ButtonFloatingModal = ({
     setShowDeleteModal(false);
   };
 
+  const [showList, setShowList] = useState<boolean>(false)
+
+  const handleClick = () => {
+    setShowList(!showList)
+  }
+
   return (
 
     <div>
       <Container>
-        <ButtonContent onClick={openModal} type="button">
+        <ButtonContent isClicked={showList} onClick={handleClick} type="button">
           {content}
         </ButtonContent>
+        {showList ?
+          <ListContent >
+            <ul>
+              <li><button onClick={openModal}>Manuais</button></li>
+              <li><button onClick={openModal}>Faq</button></li>
+            </ul>
+          </ListContent>
+          : ""
+        }
         <Modal
           show={showDeleteModal}
-          titulo={'Manuais e FAQ'}
+          titulo={'Título'}
           onCancel={() => closeModal()}
         />
 

@@ -22,6 +22,7 @@ export const Container = styled.div`
   left: 0;
   z-index: 10;
   transition: all 0.5s 0.5s ease-in-out;
+
 `;
 
 export const Content = styled.div`
@@ -31,7 +32,7 @@ export const Content = styled.div`
   justify-content: center;
   background:${backgroundColor};
   margin: 50px auto;
-  width: 360px;
+  max-width: 360px;
   height: 40%;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -83,7 +84,9 @@ export const ButtonClose = styled.div`
 `;
 export const Main = styled.div`
   color: ${props => props.theme.textColor};
+  box-sizing:border-box;
   width:100%;
+  padding:10px;
   font-size: 1.25em;
   ul{
     list-style: none;
@@ -92,16 +95,13 @@ export const Main = styled.div`
     
 }
     li{
-        padding:15px;
-    }
+        padding:0px;
         
+    }
     li:hover{
         background-color:#d9d9d9;
     }
-    a{
-        text-decoration: none;
-        color:#000;
-    }
+    
     
 `;
 

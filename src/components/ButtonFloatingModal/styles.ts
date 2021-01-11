@@ -36,7 +36,28 @@ export const ListContent = styled.div`
     border:none;
     border-radius:4px 4px 0 0;
     box-shadow: 2px 2px 3px #999;
-    
-   
 
+    ul{
+        list-style: none;
+        margin:0;
+        padding:0;
+        
+    }
+        li{
+            padding:0;
+            
+        }
+        li:hover{
+            background-color:#d9d9d9;
+        }
+        
+        button{
+            padding:10px;
+            width:100%;
+            border:none;
+            color:#000;
+        }
+        button:hover{
+            background-color:#d9d9d9;
+        }
 `;

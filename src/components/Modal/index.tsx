@@ -36,13 +36,11 @@ const Modal: React.FC<ModalContainerProps> = ({
             <Main>
               <p>{mensagem}</p>
               <ul>
-                <li>
-                  <a href="#"> Manuais</a>
-                </li>
-                <li>
-                  <a href="#">FAQ</a>
-                </li>
-              </ul>
+              <li>Conteúdo</li>
+              <li>Conteúdo</li>
+              <li>Conteúdo</li>
+              <li>Conteúdo</li>
+            </ul>
             </Main>
             <Footer>
 
