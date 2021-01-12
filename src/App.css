@@ -1,4 +1,6 @@
 .App {
+  display:flex;
+  max-width:960xp;
   text-align: center;
 }
 

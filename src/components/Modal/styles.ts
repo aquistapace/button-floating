@@ -86,7 +86,6 @@ export const Main = styled.div`
   color: ${props => props.theme.textColor};
   box-sizing:border-box;
   width:100%;
-  padding:10px;
   font-size: 1.25em;
   ul{
     list-style: none;
@@ -95,7 +94,7 @@ export const Main = styled.div`
     
 }
     li{
-        padding:0px;
+        padding:0px 10px;
         
     }
     li:hover{

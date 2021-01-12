@@ -21,6 +21,12 @@ const home: React.FC = () => {
             Prototipo 2
           </Link>
         </ButtonContainer>
+
+        <ButtonContainer>
+          <Link to="/prototipo3">
+            Prototipo 3
+          </Link>
+        </ButtonContainer>
       </Container>
 
     </>
