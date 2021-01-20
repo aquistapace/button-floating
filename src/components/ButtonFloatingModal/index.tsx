@@ -51,6 +51,7 @@ const ButtonFloatingModal = ({
           show={showDeleteModal}
           titulo={'Título'}
           onCancel={() => closeModal()}
+          mensagem={"Conteúdo"}
         />
 
       </Container>

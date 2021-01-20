@@ -1,9 +1,29 @@
 import { shade } from 'polished';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const backgroundColor = "#fff";
-const primaryColor = "#166649";
+const modalAnim = keyframes`
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
 
+const modalEnter = keyframes`
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -13,16 +33,13 @@ export const Container = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 10;
-  transition: all 0.5s 0.5s ease-in-out;
-
+  animation: ${modalAnim} 0.3s ease-in-out;
 `;
 
 export const Content = styled.div`
@@ -30,42 +47,39 @@ export const Content = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background:${backgroundColor};
-  margin: 50px auto;
-  max-width: 360px;
-  height: 40%;
+  background: #fff;
+  margin: auto;
+  width: 450px;
+  padding: 1.25rem;
+  min-height: 280px;
+  height: 30%;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 0.3rem;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 10;
-  transition: all 0.5s 0.5s ease-in-out;
+  animation: ${modalEnter} 0.3s ease-in-out;
 `;
 
 export const Header = styled.div`
   text-transform: uppercase;
   display: flex;
-  justify-content: space-between;
-  width: 90%;
-  align-items: baseline;
-  padding: 0 15px 15px 15px;
-  color: ${primaryColor};
-  h1 {
-    font-size: 1em;
-    font-weight: bold;
-    color: #004b35;
-  }
+  justify-content: flex-end;
+  width: 100%;
+  align-self: center;
+  color: ${props => props.theme.primaryColor};
+
   button {
+    background: #fff;
     border:none;
-    background: ${backgroundColor};
     color: #ccc;
   }
 
   button:hover {
-    color: #d9d9d9;
+    color: #000;
   }
 `;
 export const ButtonClose = styled.div`
@@ -74,59 +88,70 @@ export const ButtonClose = styled.div`
   width: 90%;
 
   button {
-    background:${backgroundColor};
-    color: ${props => props.theme.lightGrey};
+    background: #ccc;
+    border:none;
+    color: #ccc;
   }
 
   button:hover {
-    color: ${props => props.theme.textColor};
+    border:none;
+    color: #000;
   }
 `;
 export const Main = styled.div`
-  color: ${props => props.theme.textColor};
-  box-sizing:border-box;
-  width:100%;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  color: #000;
   font-size: 1.25em;
+  margin: 0.9rem;
+  h1 {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
   ul{
-    list-style: none;
+    list-style-type:none;
     margin:0;
     padding:0;
-    
-}
-    li{
-        padding:0px 10px;
-        
-    }
-    li:hover{
-        background-color:#d9d9d9;
-    }
-    
-    
+  }
+  li:hover{
+    font-weight: bold;
+    color: #ab934b;
+  }
+
 `;
 
 export const Footer = styled.div`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   button {
-    margin: 10px;
+    margin: 0.6rem;
   }
 
-  .confirm{
-    background:  ${primaryColor};
+  .confirm {
+    background: ${props => props.theme.primaryColor};
   }
-  .confirm:hover{
-    background:${shade(0.2, '#004431')};
+
+  .confirm:hover {
+    background: ${shade(0.295, '#166649')};
   }
 
   .cancel {
-    background:${backgroundColor};
-    color: ${primaryColor};
-    border:1px solid  ${primaryColor};
+    background: #fff;
+    color: ${props => props.theme.primaryColor};
+    border: 1px solid ${props => props.theme.primaryColor};
+    transition: 0.3s ease-in-out;
   }
+
   .cancel:hover {
-      color: ${primaryColor};
-      opacity: 0.5;
+    color: ${props => props.theme.primaryColor};
+    background: ${props => props.theme.onBackground};
+  }
 `;

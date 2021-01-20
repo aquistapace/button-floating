@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FiXCircle } from 'react-icons/fi';
 import { Container, Content, Header, Main, Footer } from './styles';
 
@@ -17,40 +17,44 @@ const Modal: React.FC<ModalContainerProps> = ({
   onConfirm,
   onCancel,
 }) => {
-
-  if (show) {
-    return (
-      <>
-        <Container>
+  return (
+    <>
+      {show ? (
+        <Container onClick={onCancel}>
           <Content>
             <Header>
               <div>
-                <h1>{titulo}</h1>
-              </div>
-              <div>
-                <button onClick={(onCancel)} type="button">
+                <button onClick={onCancel} type="button">
                   <FiXCircle size={22} />
                 </button>
               </div>
             </Header>
             <Main>
-              <p>{mensagem}</p>
-              <ul>
-              <li>Conteúdo</li>
-              <li>Conteúdo</li>
-              <li>Conteúdo</li>
-              <li>Conteúdo</li>
-            </ul>
+              <div>
+                <h1>{titulo ? titulo : 'Tem certeza disso?'}</h1>
+              </div>
+              <div>
+                {/* <p>
+                  {mensagem
+                    ? mensagem
+                    : 'Após remover este item, não será possível utiliza-lo novamente.'}
+                </p> */}
+                <ul>
+                  <li>{mensagem}</li>
+                  <li>{mensagem}</li>
+                  <li>{mensagem}</li>
+                  <li>{mensagem}</li>
+                </ul>
+              </div>
             </Main>
             <Footer>
 
             </Footer>
           </Content>
         </Container>
-      </>
-    );
-  }
-  return <></>;
+      ) : null}
+    </>
+  );
 };
 
 export default Modal;
