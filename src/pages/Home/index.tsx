@@ -10,7 +10,7 @@ const home: React.FC = () => {
   return (
     <>
       <Container>
-        <ButtonContainer>
+        {/* <ButtonContainer>
           <Link to="/prototipo1">
             Prototipo 1
           </Link>
@@ -20,17 +20,17 @@ const home: React.FC = () => {
           <Link to="/prototipo2">
             Prototipo 2
           </Link>
-        </ButtonContainer>
+        </ButtonContainer> */}
 
         <ButtonContainer>
           <Link to="/prototipo3">
-            Prototipo 3
+            Com 2º Nível
           </Link>
         </ButtonContainer>
 
         <ButtonContainer>
           <Link to="/prototipo4">
-            Prototipo 4
+            Com Modal
           </Link>
         </ButtonContainer>
       </Container>
